@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* 1. Tailwind v4 Theme Configuration */
+@theme {
+  --color-background: #080810;
+  --color-foreground: #fafafa;
+  --color-card: rgba(139, 92, 246, 0.04);
+  --color-border: rgba(139, 92, 246, 0.12);
+  
+  --color-primary: #ffffff;
+  --color-primary-muted: #a1a1aa;
+  
+  /* Purple as main accent, orange as spark */
+  --color-accent: #8b5cf6;
+  --color-accent-glow: rgba(139, 92, 246, 0.2);
+  --color-spark: #f97316;
+  --color-spark-glow: rgba(249, 115, 22, 0.2);
+
+  --background-image-hero-glow: conic-gradient(from 180deg at 50% 50%, #8b5cf633 0deg, #f9731633 120deg, #a855f733 240deg, #8b5cf633 360deg);
+
+  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-family-jakarta: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* 2. Global Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.3);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.5);
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: #ffffff;
+  }
+}
+
+/* 3. Utility Classes */
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .glass-panel {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.04) 0%, rgba(249, 115, 22, 0.02) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 1.25rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #c4b5fd 0%, #f97316 50%, #a78bfa 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  .dot-grid {
+    background-image: radial-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* renamed but kept class name for backward compat */
+  .glow-blue {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2),
+                0 0 60px rgba(139, 92, 246, 0.07);
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.2),
+                0 0 60px rgba(139, 92, 246, 0.07);
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.2),
+                0 0 60px rgba(249, 115, 22, 0.07);
+  }
+
+  .border-gradient {
+    position: relative;
+  }
+  .border-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(249, 115, 22, 0.5), rgba(168, 85, 247, 0.5));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  .border-gradient:hover::before {
+    opacity: 1;
+  }
+}
+
+/* 4. Keyframes */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.35; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scroll-indicator {
+  0% { opacity: 0; transform: translateY(-4px); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
