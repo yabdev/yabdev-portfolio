@@ -1,0 +1,48 @@
+# src/main/resources/application.yml
+spring:
+  application:
+    name: yabbydev-portfolio
+  datasource:
+    # Session pooler (port 5432) — better for Hibernate/JPA than transaction pooler (6543).
+    # Username must include the project ref for the pooler: postgres.[project-ref]
+    url: ${DATABASE_URL:jdbc:postgresql://aws-1-eu-central-1.pooler.supabase.com:6543/postgres?sslmode=require}
+    username: ${DATABASE_USERNAME:postgres.ftzcvonwpsaudrijobkj}
+    password: ${DATABASE_PASSWORD:Vy.7d*ABaAa!T9a}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 2
+      minimum-idle: 1
+      data-source-properties:
+        prepareThreshold: 0
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+
+# Paystack configuration
+paystack:
+  secret-key: ${PAYSTACK_SECRET_KEY:sk_test_26f5df8ab853f4f52245a5bd45e02934960e2c2c}
+  base-url: https://api.paystack.co
+
+# Supabase Storage configuration
+supabase:
+  url: ${SUPABASE_URL:https://ftzcvonwpsaudrijobkj.supabase.co}
+  key: ${SUPABASE_KEY:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ0emN2b253cHNhdWRyaWpvYmtqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mjg4MzQ3MiwiZXhwIjoyMDg4NDU5NDcyfQ.x4s9rgbaJrI2TmVNmm6a_185a4RTNEwJe43Ij0YEBrg}
+  storage:
+    bucket: ${SUPABASE_STORAGE_BUCKET:portfolio-uploads}
+
+logging:
+  level:
+    com.yabdev: INFO
+    org.springframework.security: INFO
