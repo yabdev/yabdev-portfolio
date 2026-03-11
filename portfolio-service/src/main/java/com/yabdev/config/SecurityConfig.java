@@ -64,14 +64,8 @@ public class SecurityConfig {
         }
 
         @Bean
-        public UserDetailsService userDetailsService() {
-                // ADMIN_PASSWORD must be set as an environment variable
-                String adminPassword = System.getenv("ADMIN_PASSWORD");
-                if (adminPassword == null || adminPassword.isBlank()) {
-                        throw new IllegalStateException(
-                                        "ADMIN_PASSWORD environment variable is not set. Please set it before starting the application.");
-                }
-
+        public UserDetailsService userDetailsService(
+                        @org.springframework.beans.factory.annotation.Value("${admin.password}") String adminPassword) {
                 UserDetails admin = User.builder()
                                 .username("admin")
                                 .password(passwordEncoder().encode(adminPassword))
