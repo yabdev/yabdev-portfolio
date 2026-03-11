@@ -65,12 +65,11 @@ public class SecurityConfig {
 
         @Bean
         public UserDetailsService userDetailsService() {
-                // Use environment variable with fallback to hardcoded password for development
+                // ADMIN_PASSWORD must be set as an environment variable
                 String adminPassword = System.getenv("ADMIN_PASSWORD");
-                if (adminPassword == null) {
-                        adminPassword = "Executive95$$"; // Default password for development
-                        System.out.println(
-                                        "⚠️  WARNING: Using default admin password. Set ADMIN_PASSWORD environment variable for production.");
+                if (adminPassword == null || adminPassword.isBlank()) {
+                        throw new IllegalStateException(
+                                        "ADMIN_PASSWORD environment variable is not set. Please set it before starting the application.");
                 }
 
                 UserDetails admin = User.builder()
