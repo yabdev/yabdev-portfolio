@@ -94,10 +94,11 @@ public class SecurityConfig {
                 String reactAppUrl = System.getenv("REACT_APP_URL");
                 if (reactAppUrl != null) {
                         configuration.setAllowedOrigins(
-                                        Arrays.asList(reactAppUrl, "https://yabbydev.com", "https://www.yabbydev.com"));
+                                        Arrays.asList(reactAppUrl, "https://yabbydev.com", "https://www.yabbydev.com",
+                                                        "https://yabdev-portfolio.vercel.app"));
                 } else {
                         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://yabbydev.com",
-                                        "https://www.yabbydev.com"));
+                                        "https://www.yabbydev.com", "https://yabdev-portfolio.vercel.app"));
                 }
 
                 configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
