@@ -28,11 +28,13 @@
     scroll-behavior: smooth;
     background-color: var(--color-background);
     color: var(--color-foreground);
+    overflow-x: hidden;
   }
   
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   /* Custom scrollbar */

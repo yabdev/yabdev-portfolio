@@ -10,11 +10,11 @@ import TemplateSection from "@/features/templates/components/TemplateSection";
 import ContactSection from "@/features/contact/components/ContactSection";
 
 const sectionLabel = (num: string, title: string) => (
-  <div className="flex items-center gap-4 mb-16">
-    <span className="text-accent/80 font-mono text-sm tracking-widest">{num}</span>
-    <div className="h-px flex-1 bg-gradient-to-r from-accent/30 to-transparent" />
-    <h2 className="font-jakarta text-3xl font-bold tracking-tight text-white/90">{title}</h2>
-    <div className="h-px flex-1 bg-gradient-to-l from-accent/30 to-transparent" />
+  <div className="flex items-center gap-4 mb-16 overflow-hidden">
+    <span className="text-accent/80 font-mono text-sm tracking-widest shrink-0">{num}</span>
+    <div className="h-px flex-1 min-w-0 bg-gradient-to-r from-accent/30 to-transparent" />
+    <h2 className="font-jakarta text-2xl md:text-3xl font-bold tracking-tight text-white/90 shrink-0 text-center">{title}</h2>
+    <div className="h-px flex-1 min-w-0 bg-gradient-to-l from-accent/30 to-transparent" />
   </div>
 );
 
@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-32">
       {/* Hero Section */}
-      <section className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] -mt-24 min-h-[100vh] flex flex-col items-center justify-center pt-56 pb-20 overflow-hidden px-6 md:px-12 lg:px-24">
+      <section className="relative -mx-6 md:-mx-12 lg:-mx-24 -mt-24 min-h-[100vh] flex flex-col items-center justify-center pt-56 pb-20 overflow-hidden px-6 md:px-12 lg:px-24">
         {/* Background Image Layer */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -60,7 +60,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-jakarta text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
+            className="font-jakarta text-4xl md:text-7xl font-bold tracking-tight mb-8 leading-tight"
           >
             Building systems that <br className="hidden md:block" />
             <span className="gradient-text">
@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* Domain Modules */}
-      <section id="projects" className="min-h-screen pt-32 scroll-mt-24 relative">
+      <section id="projects" className="min-h-screen pt-32 scroll-mt-24 relative overflow-hidden">
         <div className="absolute top-40 -left-[20%] w-[500px] h-[500px] bg-hero-glow rounded-full blur-[120px] opacity-[0.05] pointer-events-none" />
         {sectionLabel("01", "Enterprise Projects")}
         <ProjectSection />
@@ -142,7 +142,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="templates" className="min-h-screen pt-32 scroll-mt-24 relative">
+      <section id="templates" className="min-h-screen pt-32 scroll-mt-24 relative overflow-hidden">
         <div className="absolute top-40 -right-[20%] w-[500px] h-[500px] bg-hero-glow rounded-full blur-[120px] opacity-[0.05] pointer-events-none" />
         {sectionLabel("02", "Business Templates")}
         <TemplateSection />
@@ -162,7 +162,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section id="academic" className="min-h-screen pt-32 scroll-mt-24 relative">
+      <section id="academic" className="min-h-screen pt-32 scroll-mt-24 relative overflow-hidden">
         <div className="absolute top-40 -left-[20%] w-[500px] h-[500px] bg-hero-glow rounded-full blur-[120px] opacity-[0.05] pointer-events-none" />
         {sectionLabel("03", "Academic Writing")}
         <AcademicSection />
@@ -183,7 +183,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen pt-32 scroll-mt-24 relative">
+      <section id="about" className="min-h-screen pt-32 scroll-mt-24 relative overflow-hidden">
         <div className="absolute top-40 -right-[20%] w-[500px] h-[500px] bg-hero-glow rounded-full blur-[120px] opacity-[0.05] pointer-events-none" />
         {sectionLabel("04", "About Me")}
         <AboutSection />
