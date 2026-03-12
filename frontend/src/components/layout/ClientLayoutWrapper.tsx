@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import PagePreloader from "@/components/ui/PagePreloader";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
@@ -41,7 +40,6 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
         {children}
       </main>
       <Footer />
-      <WhatsAppButton />
     </>
   );
 }

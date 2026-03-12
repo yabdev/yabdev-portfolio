@@ -123,7 +123,8 @@
     opacity: 0;
     transition: opacity 0.4s ease;
   }
-  .border-gradient:hover::before {
+  .border-gradient:hover::before,
+  .border-gradient:active::before {
     opacity: 1;
   }
 }
@@ -158,4 +159,21 @@
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* 5. Touch Device Enhancements */
+@media (hover: none) and (pointer: coarse) {
+  /* Make tap interactions feel responsive on touch devices */
+  a:active,
+  button:active {
+    opacity: 0.85;
+    transform: scale(0.97);
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+
+  /* Glass panels get a subtle highlight on tap */
+  .glass-panel:active {
+    border-color: rgba(139, 92, 246, 0.25);
+    transition: border-color 0.15s ease;
+  }
 }

@@ -1,11 +1,12 @@
 "use client";
 
-import { Github, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Twitter, ArrowUpRight, MessageCircle } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/yabdev", label: "GitHub" },
   { icon: Linkedin, href: "https://linkedin.com/in/abdullahi-zubair-a7a2a3149", label: "LinkedIn" },
   { icon: Twitter, href: "https://x.com/ZZUBAIR50", label: "X / Twitter" },
+  { icon: MessageCircle, href: "https://wa.me/2349067523963?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20project%20with%20you.", label: "WhatsApp" },
 ];
 
 export default function Footer() {
