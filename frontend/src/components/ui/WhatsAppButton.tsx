@@ -30,9 +30,6 @@ export default function WhatsAppButton() {
         >
             <div className="absolute inset-0 bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <FaWhatsapp size={32} className="relative z-10 drop-shadow-sm" />
-
-            {/* Subtle pulse animation */}
-            <span className="absolute w-full h-full rounded-full animate-ping bg-[#25D366]/40" style={{ animationDuration: '3s' }}></span>
         </motion.a>
     );
 }
