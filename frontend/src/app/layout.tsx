@@ -1,5 +1,5 @@
 import QueryProvider from "@/components/providers/QueryProvider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
@@ -7,6 +7,12 @@ import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 // Elegant, non-gimmicky fonts
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "YabbyDev | Enterprise Solutions Architect",
