@@ -11,7 +11,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-32 border-t border-white/[0.06]">
+    <footer className="relative mt-32 border-t border-white/[0.06] overflow-x-hidden">
       {/* Gradient accent line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           {/* Social links */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
             {socialLinks.map((link) => {
               const Icon = link.icon;
               return (
@@ -45,8 +45,8 @@ export default function Footer() {
                   className="group flex items-center gap-2 text-primary-muted hover:text-white transition-all duration-300 px-4 py-2.5 rounded-full border border-white/[0.06] bg-white/[0.02] hover:border-accent/30 hover:bg-accent/5"
                 >
                   <Icon size={16} strokeWidth={1.5} />
-                  <span className="text-sm font-medium">{link.label}</span>
-                  <ArrowUpRight size={12} className="opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
+                  <span className="text-sm font-medium hidden sm:inline">{link.label}</span>
+                  <ArrowUpRight size={12} className="hidden sm:block opacity-0 -translate-y-0.5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300" />
                 </a>
               );
             })}

@@ -30,9 +30,9 @@ export default function ContactSection() {
   const inputClasses = "w-full bg-black/50 border border-border rounded-xl px-4 py-3.5 text-white placeholder:text-gray-600 focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/20 transition-all duration-300";
 
   return (
-    <div className="relative max-w-2xl mx-auto">
+    <div className="relative max-w-2xl mx-auto overflow-x-hidden">
       {/* Decorative orb */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-hero-glow rounded-full blur-[150px] opacity-10 pointer-events-none" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[85vw] max-w-[400px] aspect-square bg-hero-glow rounded-full blur-[150px] opacity-10 pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
